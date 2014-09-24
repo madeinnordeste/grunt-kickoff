@@ -8,10 +8,23 @@ module.exports = function( grunt ) {
       },
       my_target : {
         files : {
-          'assets/js/main.js' : [ 'assets/js/one.js', 'assets/js/two.js' ]
+          'examples/js/main.js' : [ 'examples/js/one.js', 'examples/js/two.js' ]
         }
       }
     }, // uglify
+
+
+    less: {
+      production: {
+        options: {
+          paths: ["examples/css"],
+          cleancss: true,
+        },
+        files: {
+          "examples/css/result.css": "examples/less/global.less"
+        }
+      }
+    }, //less
 
 
     watch : {
@@ -23,17 +36,17 @@ module.exports = function( grunt ) {
         tasks : [ 'uglify' ]
       }
     } // watch
-    
+
   });
 
 
   // Plugins do Grunt
-  grunt.loadNpmTasks( 'grunt-contrib-uglify' );
-  grunt.loadNpmTasks( 'grunt-contrib-watch' );
-
+  grunt.loadNpmTasks('grunt-contrib-uglify');
+  grunt.loadNpmTasks('grunt-contrib-watch');
+  grunt.loadNpmTasks('grunt-contrib-less');
   
   // Tarefas que serão executadas
-  grunt.registerTask( 'default', [ 'uglify'] );
+  grunt.registerTask( 'default', [ 'uglify', 'less'] );
 
    // Tarefa para Watch
   grunt.registerTask( 'w', [ 'watch' ] );

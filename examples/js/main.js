@@ -1,0 +1,1 @@
+function one(){alert("one")}function two(){alert("two")}
