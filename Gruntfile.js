@@ -6,7 +6,6 @@ module.exports = function( grunt ) {
       options : {
         mangle : false
       },
-
       my_target : {
         files : {
           'assets/js/main.js' : [ 'assets/js/one.js', 'assets/js/two.js' ]
@@ -19,13 +18,12 @@ module.exports = function( grunt ) {
       dist : {
         files : [
           'assets/js/**/*',
-          'assets/sass/**/*'
+          'assets/css/**/*'
         ],
-
         tasks : [ 'uglify' ]
       }
     } // watch
-
+    
   });
 
 
