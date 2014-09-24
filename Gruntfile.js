@@ -27,13 +27,21 @@ module.exports = function( grunt ) {
     }, //less
 
 
+    smushit: {
+      mygroup: {
+        src: ['examples/img/**/*'],
+        dest: 'examples/img'
+      }
+    }, //smushit
+
+
     watch : {
       dist : {
         files : [
-          'assets/js/**/*',
-          'assets/css/**/*'
+          'examples/js/**/*',
+          'examples/less/**/*'
         ],
-        tasks : [ 'uglify' ]
+        tasks : [ 'uglify', 'less' ]
       }
     } // watch
 
@@ -44,6 +52,7 @@ module.exports = function( grunt ) {
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-contrib-less');
+  grunt.loadNpmTasks('grunt-smushit');
   
   // Tarefas que serão executadas
   grunt.registerTask( 'default', [ 'uglify', 'less'] );
